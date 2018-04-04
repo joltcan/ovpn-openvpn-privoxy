@@ -15,6 +15,7 @@ services:
       - USERNAME=${OVPN_USERNAME}
       - PASSWORD=${OVPN_PASSWORD}
       - LOCAL_NETWORK=172.16.0.0/12
+      # - DISABLE_IPV6=True
     networks:
       - ovpn-openvpn-privoxy
     ports:

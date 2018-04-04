@@ -4,7 +4,7 @@ IMAGE_NAME	:= ${CONTAINER}
 HUB_USER	:= ${USER}
 DATA_DIR	:= /tmp/docker-data/${CONTAINER}
 DNS			:= 1.1.1.1
-REGION		:= se-malmo
+REGION		:= us
 
 # OVPN_USERNAME and OVPN_PASSWORD are taken from your SHELL if set, otherwise 
 # declare them  here.

@@ -11,6 +11,12 @@ else
   exit 1
 fi
 
+# Disable IPv6 if set.
+if [ ! -z ${DISABLE_IPV6+x} ]; then
+echo 'pull-filter ignore "ifconfig-ipv6 "' >> "ovpn-${REGION}.conf"
+echo 'pull-filter ignore "route-ipv6 "' >> "ovpn-${REGION}.conf"
+fi
+
 if [ -n "$USERNAME" -a -n "$PASSWORD" ]; then
   echo "$USERNAME" > ${CREDENTIALS}
   echo "$PASSWORD" >> ${CREDENTIALS}
