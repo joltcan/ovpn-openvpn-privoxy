@@ -1,8 +1,13 @@
 
-CONTAINER  := ovpn-openvpn-proxy
-IMAGE_NAME := ovpn-openvpn-proxy
-HUB_USER := jolt
-DATA_DIR   := /tmp/docker-data/ovpn-openvpn-proxy
+CONTAINER	:= ovpn-openvpn-proxy
+IMAGE_NAME	:= ${CONTAINER}
+HUB_USER	:= ${USER}
+DATA_DIR	:= /tmp/docker-data/${CONTAINER}
+DNS			:= 1.1.1.1
+REGION		:= se-malmo
+
+# OVPN_USERNAME and OVPN_PASSWORD are taken from your SHELL if set, otherwise 
+# declare them  here.
 
 build:
 	docker \
@@ -20,10 +25,10 @@ run:
 		--tty \
 		--hostname=${CONTAINER} \
 		--name=${CONTAINER} \
-		--dns=208.67.222.222 --dns=208.67.220.220 \
+		--dns=${DNS} \
 		--cap-add=NET_ADMIN \
 		--device=/dev/net/tun \
-		-e "REGION=se-malmo" \
+		-e "REGION=${REGION}" \
 		-e "USERNAME=${OVPN_USERNAME}" \
 		-e "PASSWORD=${OVPN_PASSWORD}" \
 		-v /etc/localtime:/etc/localtime:ro \
@@ -38,8 +43,8 @@ shell:
 		--tty \
 		--hostname=${CONTAINER} \
 		--name=${CONTAINER} \
-		--dns=208.67.222.222 --dns=208.67.220.220 \
-		-e "REGION=se" \
+		--dns=${DNS} \
+		-e "REGION=${REGION}" \
 		-e "USERNAME=${OVPN_USERNAME}" \
 		-e "PASSWORD=${OVPN_PASSWORD}" \
 		-v /etc/localtime:/etc/localtime:ro \
