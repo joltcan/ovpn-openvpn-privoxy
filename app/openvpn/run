@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e -u -o pipefail
+
+CREDENTIALS=/etc/openvpn/credentials
+cd /app/openvpn/config
+
+if [ -n "$REGION" ]; then
+  set -- "$@" '--config' "ovpn-${REGION}.conf"
+else
+  echo "No OpenVPN config found in `pwd`/${REGION}.conf. Exiting."
+  exit 1
+fi
+
+if [ -n "$USERNAME" -a -n "$PASSWORD" ]; then
+  echo "$USERNAME" > ${CREDENTIALS}
+  echo "$PASSWORD" >> ${CREDENTIALS}
+  chmod 600 ${CREDENTIALS}
+else
+  echo "OpenVPN credentials not set. Exiting."
+  exit 1
+fi
+
+openvpn "$@"
