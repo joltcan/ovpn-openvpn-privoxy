@@ -1,21 +1,20 @@
 version: '3'
 services:
-  vpn_proxy:
+  ovpn-openvpn-privoxy:
     image: jolt/ovpn-openvpn-privoxy
     cap_add:
       - NET_ADMIN
     devices:
       - /dev/net/tun
     dns:
-      - 208.67.220.220
-      - 208.67.222.222
+      - 1.1.1.1
     volumes:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - REGION=se
       - USERNAME=${OVPN_USERNAME}
       - PASSWORD=${OVPN_PASSWORD}
-      - LOCAL_NETWORK=172.16.0.0/20
+      - LOCAL_NETWORK=172.16.0.0/12
     networks:
       - ovpn-openvpn-privoxy
     ports:
@@ -23,4 +22,4 @@ services:
     restart: always
 
 networks:
-  vpn_proxy:
+  ovpn-openvpn-privoxy:
