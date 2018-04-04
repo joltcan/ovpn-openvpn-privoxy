@@ -1,9 +1,4 @@
-![OVPN logo](https://www.ovpn.com/images/logos/logo.svg https://ovpn.se)
-
-# Wall of fame
-[Act28](https://github.com/act28) created the [repo](https://github.com/act28/pia-openvpn-proxy) from which I copied, then modified the code to work with [OVPN](https://ovpn.se).
-
-I also added a Makefile to build the docker stuff, which I learnt from Pierre Larsson when I was at Verisure.
+![OVPN logo](https://www.ovpn.com/images/logos/logo.svg)
 
 # Privoxy via OVPN OpenVPN connection
 An Alpine Linux container running Privoxy and OpenVPN via OVPN.(se|com)
@@ -11,6 +6,11 @@ An Alpine Linux container running Privoxy and OpenVPN via OVPN.(se|com)
 Protect your browsing activities through an encrypted and anonymized VPN proxy!
 
 You will need a [OVPN](https://www.ovpn.se) account. 
+
+## Attribution
+[Act28](https://github.com/act28) created the [repo](https://github.com/act28/pia-openvpn-proxy) from which I copied, then modified the code to work with [OVPN](https://ovpn.se).
+
+I also added a Makefile to build the docker stuff, which I learnt from Pierre Larsson when I was at Verisure.
 
 ## Starting the VPN Proxy
 
