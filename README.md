@@ -1,4 +1,4 @@
-![OVPN logo](https://www.ovpn.com/images/logos/logo.svg)
+# ![OVPN logo](https://www.ovpn.com/images/logos/logo.svg) OVPN
 
 # Privoxy via OVPN OpenVPN connection
 An Alpine Linux container running Privoxy and OpenVPN via OVPN.(se|com)
