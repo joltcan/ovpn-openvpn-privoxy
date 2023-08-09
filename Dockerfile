@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.18.3
 MAINTAINER Fredrik Lundhag <f@mekk.com>
 
 EXPOSE 8118
